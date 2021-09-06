@@ -1,0 +1,410 @@
+<!doctype html>
+<html class="no-js" {{ function('language_attributes') }} >
+	<head>
+		<meta charset="{{ function('bloginfo', 'charset') }}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{{ wp_head }}
+                <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	</head>
+	<body {{ function('body_class') }}>
+	<header style="z-index: 1000">
+		<div class="head-bar-container" style="top: 20px;" id="head-bar">
+	<div class="left-top-color">
+		<div class="left-color"></div>
+		<div class="logo">
+			<a href="{{ function('get_home_url') }}"><img class="logo-info" src="{{ function('get_template_directory_uri') }}/images/mikola-logo-big.svg" alt="MIKOLA producent osłon okeinnych - logo"></a>
+		</div>
+	</div>
+	<div class="trapeze1"></div>
+	<div class="right-top-color">
+		<div class="right-color"></div>
+		<div class="menu-bar">
+		<div id="helpdiv" class="helpdiv">
+			<div class="menu-menu-glowne-container">
+			{{ function('wp_nav_menu', 'Header menu') }}
+			</div>			</div>
+		</div>
+	</div>
+	<div class="trapeze2"></div>
+	<div class="shadow1"></div>
+	<div class="shadow2"></div>
+
+	<div class="mobile-menu-buton">
+		<i class="fas fa-bars" onclick="myFunction2()"></i>
+	</div>
+</div>
+<script>
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+	if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+		document.getElementById("head-bar").style.top = "0px";
+	} else {
+		document.getElementById("head-bar").style.top = "20px";
+	}
+}
+</script>
+
+<script>
+function myFunction2() {
+  var x = document.getElementById("helpdiv");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+	</header>
+
+<style>
+.menu .is-active>a {
+    background:	none;
+    color: #004b95;
+}
+
+.head-bar-container .menu .button, .head-bar-container .menu .wp-block-button .wp-block-button__link, .head-bar-container .menu a, .head-bar-container .wp-block-button .menu .wp-block-button__link {
+    padding: 0px;
+}
+
+
+
+
+.head-bar-container .menu .button, .head-bar-container .menu .wp-block-button .wp-block-button__link, .head-bar-container .menu a, .head-bar-container .wp-block-button .menu .wp-block-button__link {
+	padding: 2rem 1rem;
+}
+
+.head-bar-container .menu .menu-item-40 a {
+	padding: .9rem .7rem;
+	margin-top: 18px;
+}
+
+
+
+
+.menu2 {
+	float: right;
+	padding: 9px 10px 0 0;
+}
+.fa-bars {
+	font-size: 28px;
+}
+.mobile-menu-buton {
+	margin-top: 10px;
+	display: none;
+	position: absolute;
+	right: 20px;
+	cursor: pointer;
+	transition-duration:0.5s;
+}
+.mobile-menu-buton:hover {
+	color: #004b95;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background-color: #888;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #004b95;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #004b95;
+}
+
+.left-top-color {
+	background-image: linear-gradient(to right, #DDD, #C5C5C5, #C0C0C0);
+	height: 80px;
+	width: calc(((100% - 1230px) / 2) + 295px);
+	float: left;
+}
+.right-top-color {
+	background-image: linear-gradient(to left, #DDD, #CCC, #C0C0C0);
+	height: 80px;
+	width: calc(((100% - 1230px) / 2) + 519px);
+	float: right;
+}
+.menu-bar {
+	width: 650px;
+	height: 80px;
+
+}
+
+
+
+.shadow1 {
+	position: absolute;
+	left: 0px;
+	bottom: -1px;
+	width: calc(((100% - 1230px) / 2) + 80px + 295px);
+	height: 1px;
+	background-color: #C0C0C0;
+	-webkit-box-shadow: 5px 2px 8px 0px black;
+	-moz-box-shadow: 5px 2px 8px 0px black;
+	box-shadow: 5px 2px 8px 0px black;
+
+}
+.shadow2 {
+	position: absolute;
+	right: 0px;
+	bottom: -1px;
+	width: calc(((100% - 1230px) / 2) + 519px);
+	height: 1px;
+	background-color: #C0C0C0;
+	-webkit-box-shadow: 5px 2px 8px 0px black;
+	-moz-box-shadow: 5px 2px 8px 0px black;
+	box-shadow: 5px 2px 8px 0px black;
+}
+
+.right-color {
+	width: calc((100% - 1230px) / 2);
+	height: 80px;
+	background-color: #C0C0C0;
+	float: right;
+	display: inline-block;
+}
+
+
+
+
+.logo-info {
+	height: 40px;
+}
+.head-bar-container {
+	position: fixed;
+	height: 80px;
+	z-index: 10;
+	transition-duration:0.2s;
+	width: 100%;
+}
+.head-bar {
+	width: 1230px;
+    margin: 0 auto;
+    position: relative;
+    clear: both;
+
+	height: 80px;
+	display: inline-block;
+}
+.left-color {
+	width: calc((100% - 1230px) / 2);
+	height: 80px;
+	float: left;
+	display: inline-block;
+}
+
+.trapeze1 {
+	width: 0px;
+	height: 0;
+	border-left: 0px solid transparent;
+	border-right: 80px solid transparent;
+	border-bottom: 80px solid #C0C0C0;
+	float: left;
+}
+.trapeze2 {
+	width: 0px;
+	height: 0;
+	border-left: 80px solid transparent;
+	border-right: 0px solid transparent;
+	border-top: 80px solid #C0C0C0;
+	float: right;
+}
+.logo {
+	float: right;
+	padding: 20px 17px 20px 12px;
+}
+
+.header ul {
+	list-style-type: none;
+}
+.header li {
+	display: inline;
+}
+ul li a {
+	text-decoration: none;
+	padding: 27px 12px 27px 12px;
+	color: black;
+	font-weight: 600;
+	vertical-align: middle;
+	display: inline-block;
+
+}
+.head-bar-container ul li a:hover {
+	text-decoration: none;
+	color: #004b95;
+	border-top: 3px solid #004b95;
+	padding-top: 29px;
+}
+ul li.menu-item-40 a {
+	color: white;
+	padding: 12px 12px 12px 12px;
+	background-color: #004b95;
+	transition-duration:0.5s;
+	margin-left: 8px;
+}
+.head-bar-container ul li.menu-item-40 a:hover {
+	background-color: blue;
+}
+
+@media (max-width: 1250px) {
+  .logo {
+	  float: right;
+  }
+  .left-top-color {
+	  width: 300px;
+  }
+  .shadow1 {
+	 width: 379px;
+  }
+  .right-top-color {
+	width: 650px;
+  }
+  .shadow2 {
+	  width: 580px;
+  }
+
+}
+@media (max-width: 1130px) {
+	.head-bar-container {
+		background-color: #C0C0C0;
+	}
+	.trapeze1 {
+		display: none;
+	}
+	.trapeze2 {
+		display: none;
+	}
+	.shadow2 {
+		display: none;
+	}
+	.shadow1 {
+		width: 100%;
+	}
+}
+@media (max-width: 1000px) {
+
+
+
+	.menu {
+		padding: 0px;
+		float: none;
+	}
+	ul li a {
+		width: 100%;
+		text-align: center;
+	}
+	.menu-menu-glowne-container {
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		height: 310px;
+		top: 52px;
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+	li {
+		display: block;
+	}
+	ul {
+		list-style-type: none;
+	}
+	.menu-bar {
+		width: 100px;
+		height: 50px;
+	}
+	.right-top-color {
+		width: 120px;
+		height: 50px;
+	}
+	.logo-info {
+		height: 30px;
+
+	}
+	.head-bar-container {
+		height: 50px;
+	}
+	.logo {
+		padding: 11px;
+		float: left;
+	}
+	.left-top-color {
+		height: 50px;
+		width: 150px;
+	}
+	.right-color {
+		height: 50px;
+		display: none;
+	}
+	.left-color {
+		display: none;
+	}
+	.mobile-menu-buton {
+		display: block;
+	}
+
+	ul li.menu-item-40 a {
+		color: black;
+		background-color:transparent;
+		margin-left: 0px;
+		padding: 20px 12px 15px 12px;
+	}
+	ul li.menu-item-40 a:hover {
+		color: white;
+		background-color:transparent;
+		padding: 22px 12px 15px 12px;
+	}
+	ul li a:hover {
+		text-decoration: none;
+		color: #004b95;
+		border-top: none;
+		padding: 15px 12px 15px 12px;
+	}
+	ul li a {
+			border-bottom: 1px solid #AAA;
+			padding: 15px 12px 15px 12px;
+			font-size: 14px;
+		}
+	ul li a:hover {
+			border-bottom: 1px solid #AAA;
+		}
+	.helpdiv {
+		display: none;
+	}
+}
+ul li.menu-item-40 a:hover {
+	color: white;
+}
+.head-bar-container .menu .button, .head-bar-container .menu .wp-block-button .wp-block-button__link, .head-bar-container .menu a, .head-bar-container .wp-block-button .menu .wp-block-button__link {
+    padding: 2.3rem 1rem;
+    border-top: 3px solid #BBB;
+}
+.head-bar-container ul li a:hover {
+    text-decoration: none;
+    color: #004b95;
+    border-top: 3px solid #004b95;
+     padding: 2.3rem 1rem;
+}
+.head-bar-container .menu .menu-item-40 a {
+    padding: 1.2rem 1.2rem;
+    margin-top: 18px;
+}
+.head-bar-container .menu .menu-item-40 a:hover {
+    color:white;
+    border-top: 3px solid #BBB;
+}
+
+</style>

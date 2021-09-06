@@ -1,0 +1,91 @@
+{% include 'templates/parts/header.twig' %}
+	<main>
+		<div class="main-container" style="padding: 0px; margin: 0px; max-width: 100%;">
+			<div class="grid-x page-main-slider" style="background-image: url('{{ post.thumbnail.src }}');">
+				<div class="shadow-layer">
+					<div class="main-container">
+						<div class="grid-x grid-margin-x" style="text-align: right; margin-top: 230px; color: white;">
+							<div class="cell"><h1>{{ post.title }}</h1></div>
+							<div class="cell breadcrumbs">{{ function('yoast_breadcrumb', '<p id="breadcrumbs">', '</p>') }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-container onas">
+			<div class="grid-x grid-margin-x" style="padding: 0px 20px 0px 20px">
+				<div class="cell" style="border: 3px solid #004b95;">
+					<h2 class="home-h1" style="padding-top: 0px; padding-bottom: 30px; margin-top: -20px; font-size: 1.5rem; padding-right: 0px">{{ post.meta('naglowek') }}</h2>
+						<div class="textbox-first">
+							{{ post.meta('opis_w_naglowku') }}
+						</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="main-container second-block">
+			<div class="grid-x grid-margin-x">
+			
+					<div class="cell medium-6">
+						<img src="{{ post.meta('obrazek_obok_testu_1').url }}" class="img-onas first-img" alt="{{ post.meta('obrazek_obok_testu_1').alt }}" />
+						<img src="{{ post.meta('obraz_obok_tekstu_2').url }}" class="img-onas second-img" alt="{{ post.meta('obraz_obok_tekstu_2').alt }}" />
+					</div>
+					<div class="cell medium-6 text-bottom-o-nas">
+						
+						{{ post.meta('tekst_obok_zdjecia') }}
+					</div>
+				
+				
+
+			</div>
+		</div>
+	</main>
+<style>
+.second-block .first-img {
+	width: 400px;
+	float: left;
+}
+.second-block .second-img {
+	width: 400px;
+	float: right;
+	margin-top: -50px;
+}
+.second-block {
+	margin-top: 40px;
+	padding-bottom: 20px;
+}
+.img-onas {
+	box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+.onas {
+	margin-top: 60px;
+}
+.onas .textbox-first {
+	margin-top: -20px;
+	padding: 0px 30px 20px 30px;
+	font-weight: 500;
+	color: #444;
+}
+
+
+.onas .home-h1 {
+	font-size: 27px;
+	padding: 20px; 
+	font-weight: 600; 
+	background-color: white;
+	margin-top: -45px; 
+	margin-left: 30px; 
+	padding-right: 30px;
+	display: block;
+	width: 225px;
+}
+@media (max-width: 8000px) {
+    .second-img {
+        padding-top: 60px;
+    }
+    .text-bottom-o-nas{
+        padding-top: 30px;
+    }
+}
+</style>
+{% include 'templates/parts/footer.twig' %}

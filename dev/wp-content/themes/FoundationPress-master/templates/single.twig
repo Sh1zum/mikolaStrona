@@ -1,0 +1,133 @@
+{% include 'templates/parts/header.twig' %}
+	<main class="single-post-blog">
+		<div class="main-container" style="padding: 0px; margin: 0px; max-width: 100%;">
+			<div class="grid-x page-main-slider" style="background-image: url('{{ post.thumbnail.src }}');">
+				<div class="shadow-layer">
+					<div class="main-container">
+						<div class="grid-x grid-margin-x" style="text-align: right; margin-top: 230px; color: white;">
+							<div class="cell"><h1>{{ function('get_the_title') }}</h1></div>
+							<div class="cell breadcrumbs">{{ function('yoast_breadcrumb', '<p id="breadcrumbs">', '</p>') }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-container" style="margin-top: 30px; padding-bottom: 30px;">
+			<div class="grid-x grid-margin-x">
+			</div>
+			<div class="grid-x grid-margin-x align-center">
+				<div class="cell large-10">
+				
+				</div>
+				<div class="cell large-10">
+					{{post.content}}
+				</div>
+				
+			</div>
+			
+			<div class="grid-x grid-margin-x align-center" style="border-top: 3px solid #004b95; margin-top: 40px;">
+				<div class="cell home-h1" style="text-align: center">
+					Poznaj nasze produkty
+				</div>
+				{% for single in post.meta('produkty_do_wyswietlenia') %}
+				<div class="cell medium-4 product-galery" style="background-image: url('{{ single.produkt.thumbnail.src }}')">
+					<a href="{{ single.produkt.link }}">
+						<div class="button-product-padding">
+							<span class="button-on-product">{{ single.produkt.title }}</span>
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+			
+			</div>
+		</div>
+		
+		
+	</main>	
+	
+	
+	
+	<style>
+	.single-post-blog .home-h1 {
+		font-size: 27px;
+		padding: 20px; 
+		font-weight: 600; 
+		background-color: white;
+		margin-top: -45px; 
+		display: inline-block;
+	}
+	.single-post-blog .button-product-padding {
+				padding-top: 280px;
+				opacity: 0;
+			}
+			.single-post-blog .button-product-padding:hover {
+				animation-name: opacityOnn;
+				animation-duration: 0.7s;
+				animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+			}
+			.single-post-blog .button-on-product {
+				font-size: 21px; 
+				font-weight: 500; 
+				color: white; 
+				text-transform: uppercase; 
+				letter-spacing: 1px;
+				background-color: #004b95; 
+				padding: 5px 15px 5px 30px; 
+				box-shadow: 0 1rem 5rem rgba(0,0,0,.8)!important;					
+			}
+			.single-post-blog .product-galery {
+				height: 300px;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				margin-top: 15px;
+				margin-bottom: 15px;
+				box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+				transition: 0.3s;
+			}
+			.single-post-blog .product-galery:hover {
+				box-shadow: 0 1rem 3rem rgba(0,0,0,.5)!important;
+			}
+			@keyframes opacityOnn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+					padding-top: 230px;
+					padding-bottom: 50px;
+				}
+			}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	.breadcrumbs {
+		font-size: 18px;
+	}
+	.page-main-slider a {
+		color: white;
+	}
+	.page-main-slider {
+		width: 100%;
+		height: 350px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.shadow-layer {
+		width: 100%;
+		height: 350px;
+		background-color: rgba(0, 0, 0, 0.5);
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	}
+	
+</style>
+{% include 'templates/parts/footer.twig' %}

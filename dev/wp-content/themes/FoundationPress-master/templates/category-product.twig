@@ -1,0 +1,180 @@
+{% include 'templates/parts/header.twig' %}
+	<main>
+		<div class="main-container" style="padding: 0px; margin: 0px; max-width: 100%;">
+			<div class="grid-x page-main-slider" style="background-image: url('{{ post.thumbnail.src }}');">
+				<div class="shadow-layer">
+					<div class="main-container">
+						<div class="grid-x grid-margin-x" style="text-align: right; margin-top: 230px; color: white;">
+							<div class="cell"><h1>{{ function('get_the_title') }}</h1></div>
+							<div class="cell breadcrumbs">{{ function('yoast_breadcrumb', '<p id="breadcrumbs">', '</p>') }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-container category-product" style="margin-top: 20px;">
+			<div class="grid-x grid-margin-x">
+			{% for key, post in posts %}
+				<div class="cell 
+				{% if posts|length == 2 %}
+					medium-6
+				{% elseif posts|length == 4 %}
+					medium-6
+				{% elseif posts|length == 5 and (key == 0 or key == 1)%}
+					medium-6
+				{% elseif posts|length == 8 and (key == 0 or key == 3 or key == 4 or key == 7)%}
+					medium-8
+				{% else %}
+					medium-4
+				{% endif %} 
+				product-galery" style="background-image: url('{{ post.thumbnail.src }}')">
+					<a href="{{ post.link }}">
+						<div class="button-product-padding">
+							<span class="button-on-product">{{ post.title }}</span>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+		
+		<div class="tekst-img">
+			<div class="layer-product">
+				<div class="main-container product-page block">
+					<div class="grid-x grid-margin-x align-center text-block">
+						<div class="cell large-12 text-center"><h2 class="header">{{ post.meta('naglowek_na_obrazku') }}</h2></div>
+						<div class="cell large-12 text-center text-content">{{ post.meta('tekst_na_obrazku') }}</div>
+					</div>
+				</div>
+                        </div>
+		</div>
+		<div class="main-container product-page">
+			{% for row in post.meta('dodatkowe_opisy') %}	
+			<div class="grid-x grid-margin-x tekst-content">
+				<div class="cell large-6 text-center {% if loop.index0 % 2 == 0 %}order-class-1{% else %}order-class-2{% endif %}">{{ row.tekst }}</div>
+				<div class="cell large-6 text-center"><img style="padding: 30px;" src="{{ row.obrazek.url }}" alt="{{ row.obrazek.alt }}" /></div>
+			</div>
+			{% endfor %}
+		</div>>
+		
+	</main>	
+<style>
+			.category-product .button-product-padding {
+				padding-top: 280px;
+				opacity: 0;
+			}
+			.category-product .button-product-padding {
+				animation-name: opacityOn;
+				animation-duration: 0.7s;
+				animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+			}
+			.category-product .button-on-product {
+				font-size: 21px; 
+				font-weight: 500; 
+				color: white; 
+				text-transform: uppercase; 
+				letter-spacing: 1px;
+				background-color: #004b95; 
+				padding: 5px 15px 5px 30px; 
+				box-shadow: 0 1rem 5rem rgba(0,0,0,.8)!important;					
+			}
+			.category-product .product-galery {
+				height: 300px;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				margin-top: 15px;
+				margin-bottom: 15px;
+				box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+				transition: 0.3s;
+			}
+			.category-product .product-galery:hover {
+				box-shadow: 0 1rem 3rem rgba(0,0,0,.5)!important;
+			}
+			@keyframes opacityOn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+					padding-top: 230px;
+					padding-bottom: 50px;
+				}
+			}
+			.layer-product {
+	height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.tekst-img .text-block .header{
+	font-size: 2rem;
+}
+.tekst-img .text-block .text-content{
+	font-weight: 400;
+	font-size: 1.1rem;
+}
+.tekst-img .block {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.tekst-img .text-block {
+	padding-left: 40px;
+	padding-right: 40px;
+	color: white;
+}
+.tekst-img {
+	background: #6DB3F2 url('{{ post.meta('tlo_tekstu') }}');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	width: 100%;
+	height: 100%;
+}
+.product-page .tekst-content {
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.product-page .naglowek-first {
+	font-weight: 600;
+    font-size: 1.3rem;
+	background-color: white;
+}
+
+.product-page .naglowek-second {
+	font-weight: 600;
+    font-size: 1.3rem;
+	background-color: white;
+}
+
+.product-page .border-right-box-text
+{
+	border: 3px solid #004b95;
+}
+
+.product-page {
+	margin-top: 20px;
+}
+.order-class-1 {
+        order: 1;
+    }
+@media (max-width: 800px) {
+    .tekst-img .text-block {
+        padding-left: 7px;
+        padding-right: 7px;
+        color: white;
+    }
+    .grid-margin-x>.cell {
+        margin-left: 7px;
+        margin-right:7px;
+    }
+    .order-class-1 {
+        order: 0;
+    } 
+}
+			</style>
+{% include 'templates/parts/footer.twig' %}

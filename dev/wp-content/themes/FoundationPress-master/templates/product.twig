@@ -1,0 +1,207 @@
+{% include 'templates/parts/header.twig' %}
+	<main>
+		<div class="main-container" style="padding: 0px; margin: 0px; max-width: 100%;">
+			<div class="grid-x page-main-slider" style="background-image: url('{{ post.thumbnail.src }}');">
+				<div class="shadow-layer">
+					<div class="main-container">
+						<div class="grid-x grid-margin-x" style="text-align: right; margin-top: 230px; color: white;">
+							<div class="cell"><h1>{{ function('get_the_title') }}</h1></div>
+							<div class="cell breadcrumbs">{{ function('yoast_breadcrumb', '<p id="breadcrumbs">', '</p>') }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-container product-page" style="margin-top: 50px;">
+			<div class="grid-x grid-margin-x">
+				<div class="cell large-6">
+					<div class="product-image-gallery">
+						{% set imgfirst = post.meta('galeria_produktu_-_pierwsza')|first %}
+						<img class="pdp-product-image" id="main-product-image" src="{{ Image(imgfirst).src }}" alt="{{ Image(imgfirst).alt }}">
+						<br>
+						<ul class="menu-gallery product-thumbs align-center">
+						{% for image in post.meta('galeria_produktu_-_pierwsza') %}
+							<li> <a class="sim-thumb" data-image="{{ Image(image).src }}"><img src="{{ Image(image).src|resize(50, 50) }}" alt="{{ Image(image).alt }}"></a> </li>
+						{% endfor %}
+						</ul>
+					  </div>
+				</div>
+				<div class="cell large-6">
+					<div class="grid-x grid-margin-x border-right-box-text">
+					
+						<div class="cell medium-12 text-center"><span class="naglowek-first" style="display: inline-block; padding: 0px 30px 10px 30px; position: relative; top: -20px">{{ post.meta('naglowek_1') }}</span></div>
+						<div class="cell medium-12" style="margin-top: -20px; padding-bottom: 10px;">{{ post.meta('tekst_1') }}</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+			<div class="tekst-img">
+			<div class="layer-product">
+				<div class="main-container product-page block">
+					<div class="grid-x grid-margin-x align-center text-block">
+						<div class="cell large-12 text-center"><h2 class="header">{{ post.meta('naglowek_na_obrazku') }}</h2></div>
+						<div class="cell large-12 text-center text-content">{{ post.meta('tekst_na_obrazku') }}</div>
+					</div>
+				</div>
+		</div>
+		</div>
+		<div class="main-container product-page">
+			{% for row in post.meta('dodatkowe_opisy') %}	
+			<div class="grid-x grid-margin-x tekst-content">
+				<div class="cell large-6 text-center {% if loop.index0 % 2 == 0 %}order-class-1{% else %}order-class-2{% endif %}">{{ row.tekst }}</div>
+				<div class="cell large-6 text-center"><img style="padding: 30px;" src="{{ row.obrazek.url }}" alt="{{ row.obrazek.alt }}" /></div>
+			</div>
+			{% endfor %}
+		</div>
+		
+	</main>
+<script>
+$('.sim-thumb').on('click', function() {
+  $('#main-product-image').attr('src', $(this).data('image'));
+})
+
+</script>
+<style>
+.order-class-1 {
+    order: 2;
+} 
+   
+.pdp-product-image {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+
+}
+.product-image-gallery .menu-gallery {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.product-image-gallery {
+  background-color: #fefefe;
+  padding: 1.5rem;
+}
+
+
+
+.product-thumbs a {
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 0 !important;
+}
+
+.product-thumbs a img {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border: solid 4px #fefefe;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+  line-height: 0;
+  border-radius: 3px;
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+
+
+
+
+
+
+.layer-product {
+	height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.tekst-img .text-block .header{
+	font-size: 2rem;
+}
+.tekst-img .text-block .text-content{
+	font-weight: 400;
+	font-size: 1.1rem;
+}
+.tekst-img .block {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.tekst-img .text-block {
+	padding-left: 40px;
+	padding-right: 40px;
+	color: white;
+}
+.tekst-img {
+	background: #6DB3F2 url('{{ post.meta('tlo_tekstu') }}');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	width: 100%;
+	height: 100%;
+}
+.product-page .tekst-content {
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.product-page .naglowek-first {
+	font-weight: 600;
+    font-size: 1.3rem;
+	background-color: white;
+}
+
+.product-page .naglowek-second {
+	font-weight: 600;
+    font-size: 1.3rem;
+	background-color: white;
+}
+
+.product-page .border-right-box-text
+{
+	border: 3px solid #004b95;
+}
+
+.product-page {
+	margin-top: 20px;
+}
+.order-class-1 {
+        order: 1;
+    }
+@media (max-width: 800px) {
+    .tekst-img .text-block {
+        padding-left: 7px;
+        padding-right: 7px;
+        color: white;
+    }
+    .grid-margin-x>.cell {
+        margin-left: 7px;
+        margin-right:7px;
+    }
+    .order-class-1 {
+        order: 0;
+    } 
+    .product-page .border-right-box-text {
+        margin: 0px 10px 0px 10px;
+    }
+}
+</style>
+{% include 'templates/parts/footer.twig' %}

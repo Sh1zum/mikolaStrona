@@ -1,0 +1,292 @@
+<span class="pochyla-footer">		
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			 viewBox="0 0 1280 30" enable-background="new 0 0 1280 30" xml:space="preserve" preserveAspectRatio="none">
+		<polygon points="1280,30 0,30 0,0 " style="fill:#004b95"/>
+</svg></span>
+		<div class="footer-color">
+			<footer class="footer-container">
+				<div class="grid-container">
+					<div class="grid-x grid-margin-x">
+						<div class="cell small-4">
+							<div class="float-left">
+								<a href="{{ function('get_home_url') }}">
+									<img class="logo-footer" src="{{ function('get_template_directory_uri') }}/images/mikola-logo-small.svg" alt="Logo Mikola - stopka" />
+								</a>
+							</div>
+						</div>
+						<div class="cell small-4">
+							<div class="float-right footer-content">
+								Adres: Woronowicka 4, 54-016 Wrocław
+							</div>
+						</div>
+						<div class="cell small-4" >
+							<div class="float-right fot-men">
+								<ul class="menu menu2">
+									<li>
+										<a href="#"><img class="social-footer" src="{{ function('get_template_directory_uri') }}/images/icons/facebook-square-brands.svg" alt="" /></a>
+									</li>
+									<li>
+										<a href="#"><img class="social-footer" src="{{ function('get_template_directory_uri') }}/images/icons/instagram-square-brands.svg" alt="" /></a>
+									</li>
+									<li>
+										<a href="#"><img class="social-footer" src="{{ function('get_template_directory_uri') }}/images/icons/twitter-square-brands.svg" alt="" /></a>
+									</li>
+									<li>
+										<a href="#"><img class="social-footer" src="{{ function('get_template_directory_uri') }}/images/icons/linkedin-brands.svg" alt="" /></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	{{ function('wp_footer') }}
+	</body>
+</html>
+
+<style>
+
+.footer-color {
+	background-color: #004b95;
+}
+.footer-container {
+	border-top: none;
+	margin-top: -6px;
+}
+.social-footer {
+	width: 16px;
+	fill: #000;
+}
+.logo-footer {
+	width: 110px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	fill: #000;
+}
+
+.float-left {
+	float: left;
+}
+.footer-content{
+	color: white;
+}
+.float-right {
+	float: right;
+}
+	.breadcrumbs {
+		font-size: 18px;
+	}
+	.page-main-slider a {
+		color: white;
+	}
+	.page-main-slider {
+		width: 100%;
+		height: 350px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		
+	}
+	.shadow-layer {
+		width: 100%;
+		height: 350px;
+		background-color: rgba(0, 0, 0, 0.5);
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	}
+	</style>
+	
+	
+	
+	<style>
+
+									.block-blog-homepage .data{
+										padding: 15px 15px 5px 15px; min-height: 30px;
+										color: #666;
+										font-size: 14px;
+									}
+									.block-blog-homepage .naglowek{
+										padding: 0px 5px 5px 15px; min-height: 50px;
+										color: #222;
+										font-size: 16px;
+										font-weight: 600;
+									}
+									
+									.block-blog-homepage .content{
+										padding: 10px 10px 15px 15px; min-height: 162px;
+										color: #888;
+										font-size: 13px;
+									}
+									.block-blog-homepage .button-panel {
+									
+										padding: 8px 0px 8px 15px;  background-color: rgba(230, 230, 230);
+										
+									}
+									
+									.block-blog-homepage .category {
+										color: #999;
+										text-transform: uppercase;
+										letter-spacing: 2px;
+										font-size: 13px;
+									}
+									
+									.block-blog-homepage .more {
+										text-transform: uppercase;
+										letter-spacing: 2px;
+										font-size: 15px;
+										font-weight: 600;
+										color: white;
+										background-color: #004b95;
+										padding: 3px 13px 3px 13px;
+										transition: 0.5s;
+										
+									}
+									.block-blog-homepage .more:hover {
+										background-color: #0079be;
+
+										
+										
+									}
+									.block-blog-homepage ul li a {
+										text-decoration: none;
+										padding: 0px;
+									}
+									</style>
+<style>
+.uppercase {
+	text-transform: uppercase;
+}
+.orbit-bullets {
+	margin-top: -15px;
+	padding-bottom: 20px;
+}
+.orbit-bullets button {
+	width: .8rem;
+    height: .8rem;
+	background-color: #FFF;
+}
+.orbit-bullets button.is-active {
+    background-color: #004b95;
+}
+
+.orbit-next:active, .orbit-next:focus, .orbit-next:hover, .orbit-previous:active, .orbit-previous:focus, .orbit-previous:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+.orbit-previous {
+    margin-left: -15px;
+	
+}
+.orbit-next {
+    margin-right: -15px;
+	
+}
+
+
+
+
+
+
+
+
+
+
+.img-blog {
+  background-image: url("{{ function('get_template_directory_uri') }}/images/dev.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+.text-blog-block {
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	z-index: 3;
+}
+.blog-grid {
+	height: 300px;
+
+}
+.blog-header {
+	text-align: center;
+	padding: 25px;
+	font-size: 21px;
+}
+.block-blog-homepage {
+	width: 100%;
+	margin-bottom: -410px;
+	z-index: 3;
+}
+
+
+</style>
+	<style>
+	.breadcrumbs {
+		font-size: 18px;
+	}
+	.page-main-slider a {
+		color: white;
+	}
+	.page-main-slider {
+		width: 100%;
+		height: 350px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+	}
+	.shadow-layer {
+		width: 100%;
+		height: 350px;
+		background-color: rgba(0, 0, 0, 0.5);
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	}
+img {
+    vertical-align: baseline;
+    
+    }
+
+    .fot-men ul li a:hover {
+
+      padding: .7rem 1rem;
+    }
+.menu .button, .menu .wp-block-button .wp-block-button__link, .menu a, .wp-block-button .menu .wp-block-button__link {
+    line-height: 0;
+    border: none;
+}
+@media (max-width: 600px) {
+    .shadow-layer {
+        height: 310px;
+    }
+    .page-main-slider {
+        height: 310px;
+    }
+    .pochyla-footer {
+        position:relative;
+        bottom: -1px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .menu-header-menu-container li {
+		display: block;
+	}
+    .menu-header-menu-container ul {
+		list-style-type:none;
+	}
+    .menu-header-menu-container .menu {
+        display: block;
+     }
+    .menu-menu-glowne-container {
+        height: auto;
+    }
+    .head-bar-container .menu .menu-item-40 a {
+        padding: 2.3rem 1rem;
+    }
+    .head-bar-container .menu .menu-item-40 a:hover {
+        background-color: !transparent;
+    }
+    .head-bar-container .menu .menu-item-40 a {
+    margin-top: 0px;
+}
+}
+</style>

@@ -1,0 +1,144 @@
+{% include 'templates/parts/header.twig' %}
+	<main>
+		<div class="main-container" style="padding: 0px; margin: 0px; max-width: 100%;">
+			<div class="grid-x page-main-slider" style="background-image: url('{{ post.thumbnail.src }}');">
+				<div class="shadow-layer">
+					<div class="main-container">
+						<div class="grid-x grid-margin-x" style="text-align: right; margin-top: 230px; color: white;">
+							<div class="cell"><h1>{{ post.title }}</h1></div>
+							<div class="cell breadcrumbs">{{ function('yoast_breadcrumb', '<p id="breadcrumbs">', '</p>') }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-container blog-page" style="margin-top: 40px;">
+			<div class="grid-x grid-margin-x bloge-grid">
+				{% for post in posts %}	
+					<div class="cell medium-6" style="padding-bottom: 30px;">
+						<div class="grid-x">
+							<div class="cell small-6 img-blog" style="background-image: url('{{ post.thumbnail.src }}')"></div>
+							<div class="cell small-6 text-blog-block">
+								<div class="grid-x">
+								<div class="cell data">{{ post.date('F jS Y') }}</div>
+								<div class="cell naglowek">{{ post.title }}</div>
+								<div class="cell content">{{ post.content(post.ID,27) }}</div>
+								<div class="cell button-panel">
+								
+									<span class="category">{{ post.category }}</span>
+									
+									<a href="{{ post.link }}" style="float: right; margin-right: 20px;"><span class="more">Więcej</span></a>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}	
+				</div>
+				
+				<div class="grid-x grid-margin-x align-center">
+					<div class="cell large-6">
+					
+
+
+					
+					<nav aria-label="Pagination">
+					  <ul class="pagination text-center">
+					  {% if posts.pagination.prev %}
+						<li class="pagination-previous {{posts.pagination.prev.link|length ? '' : 'invisible'}}"><a href="{{posts.pagination.prev.link}}">{{ __('Poprzedni', 'mikola')}}</a></li>
+						{% endif %}
+							{% for page in posts.pagination.pages %}
+								<li>
+									{% if page.link %}
+										<a href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+									{% else %}
+										<span class="{{page.class}}">{{page.title}}</span>
+									{% endif %}
+								</li>
+							{% endfor %}
+						
+
+						{% if posts.pagination.next %}
+							<li class="pagination-next {{posts.pagination.next.link|length ? '' : 'invisible'}}"><a href="{{posts.pagination.next.link}}" aria-label="Next page">{{ __('Następny', 'mikola')}}</a></li>
+						{% endif %}
+					  </ul>
+					</nav>
+					
+					
+					
+					
+					
+					</div>
+				</div>
+			</div>
+	</main>
+	<style>
+	
+	.blog-page .img-blog {
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+
+	.blog-page .blog-grid {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.blog-page .data{
+										padding: 15px 15px 5px 15px; min-height: 30px;
+										color: #666;
+										font-size: 14px;
+									}
+									.blog-page .naglowek{
+										padding: 0px 5px 5px 15px; min-height: 50px;
+										color: #222;
+										font-size: 16px;
+										font-weight: 600;
+									}
+									
+									.blog-page .content{
+										padding: 10px 10px 15px 15px; min-height: 169px;
+										color: #888;
+										font-size: 13px;
+									}
+									.blog-page .button-panel {
+									
+										padding: 8px 0px 8px 15px;  background-color: rgba(230, 230, 230);
+										
+									}
+									
+									.blog-page .category {
+										color: #999;
+										text-transform: uppercase;
+										letter-spacing: 2px;
+										font-size: 13px;
+									}
+									
+									.blog-page .more {
+										text-transform: uppercase;
+										letter-spacing: 2px;
+										font-size: 15px;
+										font-weight: 600;
+										color: white;
+										background-color: #004b95;
+										padding: 3px 13px 3px 13px;
+										transition: 0.5s;
+										
+									}
+									.blog-page .more:hover {
+										background-color: #0079be;
+
+										
+										
+									}
+									.blog-page ul li a {
+										text-decoration: none;
+										padding: 0px;
+									}
+
+	
+	</style>
+{% include 'templates/parts/footer.twig' %}

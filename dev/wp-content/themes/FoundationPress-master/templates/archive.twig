@@ -1,0 +1,45 @@
+{% include 'templates/parts/header.twig' %}
+<div class="main-container">
+	<div class="main-grid">
+		<main class="main-content">
+			{% for post in posts %}
+				<article id="post-{{ post.ID }}" {{ function('post_class') }}>
+					<header>
+						{% if function('is_single') %}
+							{{ function('the_title', '<h1 class="entry-title">', '</h1>') }}
+						{% else %}
+							{{ function('the_title', '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>') }}
+						{% endif %}
+
+					{{ function('foundationpress_entry_meta') }}
+					</header>
+					<div class="entry-content">
+						{{ function('the_content') }}
+						{{ function('edit_post_link',  __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>') }}
+					</div>
+					<footer>
+						{{ function('wp_link_pages', dataArray) }}
+						
+						{% if function('get_the_tags') %}
+							<p>{{ function('the_tags') }}</p>
+						{% endif %}
+
+					</footer>
+				</article>
+			{% endfor %}
+
+			{% if function('function_exists', 'foundationpress_pagination') %}
+				{{ function('foundationpress_pagination') }}
+			{% elseif function('is_paged') %}
+				<nav id="post-nav">
+					<div class="post-previous">{{ function('next_posts_link', __( '&larr; Older posts', 'foundationpress' )) }}</div>
+					<div class="post-next">{{ function('previous_posts_link', __( 'Newer posts &rarr;', 'foundationpress' )) }}</div>
+				</nav>
+			{% endif %}
+
+		</main>
+		{{ function('get_sidebar') }}
+
+	</div>
+</div>
+{% include 'templates/parts/footer.twig' %}

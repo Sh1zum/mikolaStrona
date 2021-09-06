@@ -1,0 +1,536 @@
+{% include 'templates/parts/header.twig' %}
+<main>
+    <div class="main-container main-homemade">
+	<div class="grid-x slide-home-main">
+            <div class="cell">
+		<div class="orbit" role="region" data-orbit>
+                    <ul class="orbit-container">
+                        {% set columns = 2 %}
+                        {% for slider in post.meta('slider_homepage') %}
+			<li class="is-active orbit-slide">
+                            <div class="docs-example-orbit-slide" style="background-image: url('{{ function('get_template_directory_uri') }}/images/dev.jpg')">
+                                <div class="main-container">
+                                    <div class="grid-x grid-margin-x {% if loop.index % columns %}grid-right{% else %}grid-left{% endif %}">
+                                        <div class="info-box">
+                                            <div class="top">
+                                                <span class="title-info" style="">{{ slider.naglowek }}</span>
+                                                <div class="{% if loop.index % columns %}box {% else %}box box-r{% endif %}"></div>
+                                            </div>
+                                            <div class="content">{{ slider.tresc }}
+                                            </div>
+                                            <div class="{% if loop.index % columns %}info-button {% else %}info-button info-button-r{% endif %}">
+                                                <a href="{{ slider.link }}">
+                                                    <div class="button">{{ slider.przycisk }}</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+			</li>
+                        {% endfor %}
+                    </ul>
+                    <nav class="orbit-bullets orbit-bullets-slider">
+                        <button class="is-active" data-slide="0">.</button>
+                        <button data-slide="1">.</button>
+                    </nav>
+		</div>
+            </div>
+                                <style>
+                                    .grid-left {
+                                        float: left;
+                                    }
+
+                                </style>
+			</div>
+		</div>
+		<div class="main-container">
+			<div class="grid-x grid-margin-x">
+				<div class="cell" style="border: 3px solid #004b95;">
+					<h1 class="home-h1">{{ post.meta('naglowek_strony') }}</h1>
+						<div class="textbox-first">
+						{{ post.meta('tresc_naglowka') }}
+						</div>
+				</div>
+			</div>
+		</div>
+<style>
+                                                                            .info-box .title-info {
+                                                                                animation-name: show-title;
+                                                                                animation-duration: 2s;
+                                                                                animation-iteration-count: 1;
+                                                                                animation-delay: 2.5s;
+                                                                                opacity: 0;
+                                                                                animation-fill-mode: forwards;
+                                                                                color: white; font-size: 1.5rem; padding-left: 40px;
+                                                                            }
+                                                                            .info-box .info-button {
+                                                                                margin-left: -50px;
+                                                                                margin-top: -10px;
+                                                                                animation-name: show-button;
+                                                                                animation-duration: 1.2s;
+                                                                                animation-iteration-count: 1;
+                                                                                animation-delay: 3s;
+                                                                                opacity: 0;
+                                                                                animation-fill-mode: forwards;
+                                                                            }
+                                                                            .info-box .content {
+                                                                                padding: 0px 40px 0px 40px;
+                                                                                color: white;
+                                                                                font-weight: 400;
+                                                                                animation-name: show-text;
+                                                                                animation-duration: 1s;
+                                                                                animation-iteration-count: 1;
+                                                                                animation-delay: 2.5s;
+                                                                                opacity: 0;
+                                                                                animation-fill-mode: forwards;
+                                                                            }
+                                                                            .info-box .box {
+                                                                                width: 80px;
+                                                                                height: 60px;
+                                                                                background-color: #004b95;
+                                                                                float: right;
+                                                                                margin-top: -50px;
+                                                                                margin-right: -20px;
+                                                                                animation-name: show-kwadrat;
+                                                                                animation-duration: 1s;
+                                                                                animation-iteration-count: 1;
+                                                                                animation-delay: 2s;
+                                                                                opacity: 0;
+                                                                                animation-fill-mode: forwards;
+                                                                            }
+                                                                            .orbit-container .info-box {
+                                                                                padding-top: 20px;
+                                                                                width: 500px;
+                                                                                height: 200px;
+                                                                                background-color: rgba(0, 0, 0, 0.6);
+                                                                                margin-top: 240px;
+                                                                                margin-right: 80px;
+                                                                                animation-name: show-box;
+                                                                                animation-duration: 1.2s;
+                                                                                animation-iteration-count: 1;
+                                                                                animation-delay: 1s;
+                                                                                opacity: 0;
+                                                                                animation-fill-mode: forwards;
+                                                                            }
+                                                                            @keyframes show-box {
+                                                                                from {opacity: 0;
+                                                                                      margin-top: 240px;  }
+                                                                                to {opacity: 1;
+                                                                                    margin-top: 220px;}
+                                                                              }
+                                                                            @keyframes show-kwadrat {
+                                                                                from {opacity: 0;
+                                                                                      margin-top: -20px;  }
+                                                                                to {opacity: 1;
+                                                                                    margin-top: -50px;}
+                                                                              }
+                                                                            @keyframes show-button {
+                                                                                from {opacity: 0;
+                                                                                      margin-top: 20px;  }
+                                                                                to {opacity: 1;
+                                                                                    margin-top: -10px;}
+                                                                              }
+                                                                              @keyframes show-text {
+                                                                                from {opacity: 0;
+                                                                                      margin-top: 40px;  }
+                                                                                to {opacity: 1;
+                                                                                    margin-top: 0px;}
+                                                                              }
+                                                                              @keyframes show-title {
+                                                                                from {opacity: 0;
+                                                                                      margin-top: -30px;  }
+                                                                                to {opacity: 1;
+                                                                                    margin-top: 0px;}
+                                                                              }
+                                                                              .main-homemade {
+                                                                                  padding: 0px; margin: 0px; max-width: 100%;
+                                                                              }
+                                                                        </style>
+                                                                <style>
+                                                                    .grid-right {
+                                                                       float: right;
+                                                                    }
+                                                                    .info-box .info-button-r {
+                                                                                margin-right: -50px;
+                                                                                margin-top: -10px;
+                                                                                float: right;
+                                                                            }
+                                                                            .info-box .box-r {
+                                                                                float: left;
+                                                                                margin-top: -50px;
+                                                                                margin-left: -20px;
+                                                                            }
+                                                                </style>
+		<div class="main-container" style="padding-top: 30px;">
+			<div class="grid-x grid-margin-x">
+                            {% for product in posts_products %}
+                                {% set img = function('get_the_post_thumbnail_url', product.ID) %}
+				<div class="cell medium-4 product-galery" style="background-image: url('{{ img }}'">
+                                    <a href="{{ function('get_permalink', product.ID) }}">
+						<div class="button-product-padding">
+							<span class="button-on-product">{{ product.title }}</span>
+						</div>
+					</a>
+				</div>
+                            {% endfor %}
+			</div>
+		</div>
+
+			<style>
+			.button-product-padding {
+				padding-top: 280px;
+				opacity: 0;
+			}
+			.button-product-padding {
+				animation-name: opacityOn;
+				animation-duration: 0.7s;
+				animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+			}
+			.button-on-product {
+				font-size: 21px;
+				font-weight: 500;
+				color: white;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				background-color: #004b95;
+				padding: 5px 15px 5px 30px;
+				box-shadow: 0 1rem 5rem rgba(0,0,0,.8)!important;
+			}
+			.product-galery {
+				width: 100%;
+				height: 300px;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				margin-top: 15px;
+				margin-bottom: 15px;
+				box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+				transition: 0.3s;
+			}
+			.product-galery:hover {
+				box-shadow: 0 1rem 3rem rgba(0,0,0,.5)!important;
+			}
+			@keyframes opacityOn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+					padding-top: 230px;
+					padding-bottom: 50px;
+				}
+			}
+			</style>
+
+
+			<div class="main-container">
+				<div class="grid-x grid-margin-x przebieg-zam">
+					<div class="cell blog-header" style="font-weight: 600;">
+						{{ post.meta('naglowek_procesu') }}
+					</div>
+					<div class="grid-x grid-margin-x">
+                                            {% for krok in post.meta('przebieg_zamowienia') %}
+						<div class="cell medium-4" style="margin-top: 20px;">
+							<div class="number-home-block">
+								<span class="number">{{ krok.numer }}</span>
+								<span class="header">{{ krok.naglowek }}</span>
+								<div class="content">{{ krok.tresc }}</div>
+							</div>
+						</div>
+                                            {% endfor %}
+					</div>
+				</div>
+			</div>
+<style>
+.number-home-block {
+	min-height: 200px; border: 3px solid #004b95;
+}
+.number-home-block .number {
+padding: 10px 10px 10px 10px; font-size: 45px; font-weight: 700; background-color: white; margin-top: -20px; margin-left: -20px; padding-right: 10px;
+}
+.number-home-block .header {
+	font-weight: 600; font-size: 18px;
+}
+.number-home-block .content {
+	padding: 20px; text-align: justify; margin-top: -10px;
+}
+
+
+</style>
+<br><br>
+	<div class="info-block" style="text-align: center; padding-bottom: 30px; background-color: #0079be; padding-top: 30px;">
+		<div class="main-container">
+
+                    <div class="grid-x grid-margin-x">
+                        {% for krok in post.meta('wyrozniki_liczbowe') %}
+			<div class="cell medium-3 wyrozniki-liczbowe">
+				<span style="font-size: 35px; font-weight: 700; color: white;">{{ krok.liczba }}</span><br>
+				<span style="font-weight: 600; color: white;">{{ krok.nazwa }}</span>
+			</div>
+                        {% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<div class="main-container">
+		<div class="grid-x grid-margin-x">
+			<div class="cell blog-header" style="font-weight: 600;">
+				{{ post.meta('tekst_opinii') }}
+			</div>
+			<div class="grid-x grid-margin-x" style="padding-bottom: 30px;">
+				<div class="cell" style="text-align: center;">{{ post.meta('tresc_opini_-_pod_naglowekiem') }}</div>
+			</div>
+
+				<div class="cell medium-6 opionions">
+
+
+					<div class="orbit" role="region" aria-label="Favorite Text Ever" data-orbit>
+					  <ul class="orbit-container">
+						<li class="is-active orbit-slide">
+						  <div class="docs-example-orbit-slide">
+							<div class="grid-x grid-margin-x">
+							<div class="cell small-2">
+								<img class="opionion-image" alt="Opinia nr 2" src="{{ function('get_template_directory_uri') }}/images/dev.jpg" />
+							</div>
+							<div class="cell small-10 opinion-text"><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</i></div>
+							<div class="cell small-2">
+
+							</div>
+							<div class="cell small-10" style="padding-left: 10px; color: #444"><b>Interprima sp. z o. o.</b></div>
+							 </div>
+						  </div>
+						</li>
+						<li class="is-active orbit-slide">
+						  <div class="docs-example-orbit-slide">
+							<div class="grid-x grid-margin-x">
+							<div class="cell small-2">
+								<img class="opionion-image" alt="Opinia nr 1" src="{{ function('get_template_directory_uri') }}/images/dev.jpg" />
+							</div>
+							<div class="cell small-10 opinion-text"><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</i></div>
+							<div class="cell small-2">
+
+							</div>
+							<div class="cell small-10" style="padding-left: 10px; color: #444"><b>Interprima sp. z o. o.</b></div>
+							 </div>
+						  </div>
+						</li>
+					  </ul>
+					  <nav class="orbit-bullets">
+						<button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+						<button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+					  </nav>
+					</div>
+
+
+					<style>
+					.opionions .orbit-bullets {
+						margin-top: 10px;
+					}
+					.opionions .orbit-bullets button {
+						width: .8rem;
+						height: .8rem;
+						background-color: #DDD;
+					}
+
+					.opinion-text {
+						border-top: 1px solid #EEE;
+						border-bottom: 1px solid #EEE;
+						border-left: 3px solid black;
+						border-right: 3px solid black;
+						padding: 10px;
+						color: #444;
+						padding-left: 15px;
+						padding-right: 15px;
+					}
+					.opionion-image {
+						height: 70px;
+						width: 70px;
+					}
+
+					</style>
+
+
+				</div>
+				<div class="cell medium-6">
+					<div class="grid-x grid-margin-x">
+						<div class="cell medium-4">
+							<img src="{{ function('get_template_directory_uri') }}/images/siemens-logo.png" alt="" />
+
+						</div>
+						<div class="cell medium-4">
+							<img src="{{ function('get_template_directory_uri') }}/images/santander-logo.png" alt="" />
+						</div>
+						<div class="cell medium-4">
+							<img src="{{ function('get_template_directory_uri') }}/images/lg-logo.png" alt="" style="height: 35px; margin-top: 3px;"/>
+						</div>
+						<div class="cell medium-6">
+							<img src="{{ function('get_template_directory_uri') }}/images/pw-logo.png" alt="" style="padding-top: 20px; height: 70px; padding-left: 30px;"/>
+						</div>
+						<div class="cell medium-6">
+							<img src="{{ function('get_template_directory_uri') }}/images/uwr-logo.svg" alt="" style="height: 90px;"/>
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</div>
+
+
+
+
+
+
+	</main>
+
+<style>
+.textbox-first {
+	margin-top: -20px;
+	padding: 0px 30px 20px 30px;
+	font-weight: 500;
+	color: #444;
+}
+
+
+.home-h1 {
+	font-size: 1.5rem;
+	padding: 20px;
+	font-weight: 700;
+	background-color: white;
+	margin-top: -40px;
+	margin-left: 30px;
+	padding-right: 10px;
+	display: block;
+	width: 360px;
+}
+.orbit-bullets-slider {
+	padding-top: 3px;
+}
+.slide-home-main .docs-example-orbit-slide {
+	width: 100%;
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.main-grid {
+    margin-top: 0px;
+}
+@media (max-width: 800px) {
+    .przebieg-zam {
+        padding: 0px 20px 0px 20px;
+    }
+    .wyrozniki-liczbowe {
+        padding: 10px 0px 10px 0px;
+    }
+}
+</style>
+	<style>
+
+	.blog-page .img-blog {
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+
+	.blog-page .blog-grid {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.blog-page .data{
+										padding: 15px 15px 5px 15px; min-height: 30px;
+										color: #666;
+										font-size: 14px;
+									}
+									.blog-page .naglowek{
+										padding: 0px 5px 5px 15px; min-height: 50px;
+										color: #222;
+										font-size: 16px;
+										font-weight: 600;
+									}
+
+									.blog-page .content{
+										padding: 10px 10px 15px 15px; min-height: 169px;
+										color: #888;
+										font-size: 13px;
+									}
+									.blog-page .button-panel {
+
+										padding: 8px 0px 8px 15px;  background-color: rgba(230, 230, 230);
+
+									}
+
+									.blog-page .category {
+										color: #555;
+										text-transform: uppercase;
+										letter-spacing: 2px;
+										font-size: 13px;
+									}
+
+									.blog-page .more {
+										text-transform: uppercase;
+										letter-spacing: 2px;
+										font-size: 15px;
+										font-weight: 600;
+										color: white;
+										background-color: #004b95;
+										padding: 3px 13px 3px 13px;
+										transition: 0.5s;
+
+									}
+									.blog-page .more:hover {
+										background-color: #0079be;
+
+
+
+									}
+									.blog-page ul li a {
+										text-decoration: none;
+										padding: 0px;
+									}
+
+
+	</style>
+
+
+
+<div class="main-container blog-page" style="margin-top: 40px; margin-bottom: -440px">
+			<div class="grid-x grid-margin-x bloge-grid">
+				{% for post in posts_blog %}
+                                    {% if loop.index == 1 or loop.index == 2%}
+					<div class="cell medium-6" style="padding-bottom: 30px;">
+						<div class="grid-x">
+							<div class="cell small-6 img-blog" style="z-index: 10; background-image: url('{{ post.thumbnail.src }}')"></div>
+							<div class="cell small-6 text-blog-block">
+								<div class="grid-x">
+								<div class="cell data">{{ post.date('F jS Y') }}</div>
+								<div class="cell naglowek">{{ post.title }}</div>
+								<div class="cell content">{{ post.content(post.ID,27) }}</div>
+								<div class="cell button-panel">
+
+									<span class="category">{{ post.category }}</span>
+
+									<a href="{{ post.link }}" style="float: right; margin-right: 20px;"><span class="more">Więcej</span></a>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                                    {% endif %}
+				{% endfor %}
+				</div>
+			</div>
+<div style="margin-bottom: -6px;">
+	<svg version="1.1" id="bottom-krzywa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="0 0 1280 370" enable-background="new 0 0 1280 370" xml:space="preserve" preserveAspectRatio="none">
+		<polygon points="1280,370 0,370 1280,0" style="fill:#009fe0"/>
+	</svg>
+</div>
+<div style="width: 100%; background-color: #009fe0; margin-bottom: -40px; padding-bottom: 60px; padding-top: 10px; min-height: 100px">
+
+</div>
+{% include 'templates/parts/footer.twig' %}

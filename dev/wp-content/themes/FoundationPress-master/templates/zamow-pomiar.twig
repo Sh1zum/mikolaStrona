@@ -1,0 +1,163 @@
+{% include 'templates/parts/header.twig' %}
+	<main>
+            <form method="POST">
+		<div class="main-container" style="padding: 0px; margin: 0px; max-width: 100%;">
+			<div class="grid-x page-main-slider" style="background-image: url('{{ post.thumbnail.src }}');">
+				<div class="shadow-layer">
+					<div class="main-container">
+						<div class="grid-x grid-margin-x" style="text-align: right; margin-top: 230px; color: white;">
+							<div class="cell"><h1>{{ function('get_the_title') }}</h1></div>
+							<div class="cell breadcrumbs">{{ function('yoast_breadcrumb', '<p id="breadcrumbs">', '</p>') }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-container form-con" style="margin-top: 40px; padding-bottom: 30px;">
+			<div class="grid-x grid-margin-x align-center zamow-height">
+                            {% if imie is defined %}
+                                <br>
+                                <h3>Dziękujemy za zgłoszenie!</h3>
+                                Twóje zgłoszenie trafiło do jednego z naszych salonów. W ciągu 24h technik zadzwoni umówić się na pomiar. W razie pytań prosimy o kontakt.
+                                
+     
+                            {% else %}    
+                                
+                                
+                            
+                            
+                            
+                            <div class="cell medium-8"><center>Wypełnij i wyślij poniższy formularz, a w ciągu 24h technik zadzwoni umówić się na pomiar</center>
+				<div class="grid-x grid-margin-x" style="margin-top: 30px;">
+						
+						<div class="cell medium-6">
+                                                    <input type="hidden" name="dodajZgloszenie">
+						 <label>Imię
+							  <input type="text" name="imie" required>
+                                                          {{ function('wp_nonce_field', 'imie_action', 'imie_nonce', false, false) }}
+							</label>
+						</div>
+						<div class="cell medium-6">
+						<label>Numer telefonu / Email
+							  <input type="text" name="email" required>
+                                                          {{ function('wp_nonce_field', 'email_action', 'email_nonce', false, false) }}
+							</label>
+						</div>
+						<div class="cell medium-5">
+						<label>Ulica i numer domu
+							  <input type="text" name="ulica" required>
+                                                          {{ function('wp_nonce_field', 'ulica_action', 'ulica_nonce', false, false) }}
+							</label>
+						</div>
+						<div class="cell medium-2 small-4">
+						<label>Kod pocztowy
+							  <input type="text" name="kod" required>
+                                                          {{ function('wp_nonce_field', 'kod_action', 'kod_nonce', false, false) }}
+							</label>
+						</div>
+						<div class="cell medium-5 small-8">
+						<label>Miejscowość
+							  <input type="text" name="miasto" required>
+                                                          {{ function('wp_nonce_field', 'miasto_action', 'miasto_nonce', false, false) }}
+							</label>
+						</div>
+						<div class="cell">
+						<label>
+							Poniżej napisz treść wiadomości
+						  <textarea placeholder="" rows="4" name="opis"></textarea>
+                                                  {{ function('wp_nonce_field', 'opis_action', 'opis_nonce', false, false) }}
+						</label>
+						</div>
+						
+						<div class="cell medium8">
+							<div class="grid-x">
+								<div class="cell medium-1 small-1">
+									<input id="checkbox1" type="checkbox" required>
+								</div>
+								<div class="cell medium-11 small-11">
+								<label for="checkbox1">Wyrażam zgodę na przetwarzanie i wykorzystywanie danych osobowych zgodnie RODO w związku z wysłaniem zapytania przez formularz kontaktowy. Podanie danych jest dobrowolne i niezbędne do przetworzenia zapytania.</label>
+								</div>
+							</div>
+							<div class="grid-x secondcheck">
+								<div class="cell medium-1 small-1">
+									<input id="checkbox2" type="checkbox">
+								</div>
+								<div class="cell medium-11 small-11">
+								<label for="checkbox2">Oświadczam, że zostałem(am) poinformowany(na) o prawie dostępu do treści swoich danych. oraz możliwości ich poprawiania, w tym wniesienia o ich usunięcie. Administratorem danych osobowych jest MIKOLA.</label>
+								</div>
+							</div>
+						</div>
+						<div class="cell" style="margin-top: 30px;text-align:center">
+							<input type="submit" class="button" value="Zamów pomiar">
+						
+						</div>
+                                    
+					</div>
+				</div>	
+                            {% endif %}                    
+			</div>
+		</div>
+		
+            </form>
+	</main>	
+	<br>
+	
+	
+	<style>
+            .zamow-height {
+                min-height: 550px;
+            }
+            #checkbox1 {
+                margin-left: 20px;
+                margin-top: 20px;
+            }
+            #checkbox2 {
+                margin-left: 20px;
+                margin-top: 20px;
+            }
+	.breadcrumbs {
+		font-size: 18px;
+	}
+	.page-main-slider a {
+		color: white;
+	}
+	.page-main-slider {
+		width: 100%;
+		height: 350px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.shadow-layer {
+		width: 100%;
+		height: 350px;
+		background-color: rgba(0, 0, 0, 0.5);
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	}
+        .menu .is-active>a {
+            background: #004b95;;
+            color: white;;
+        }
+	@media (max-width: 600px) {
+            .zamow-height {
+                min-height: 350px;
+            }
+            
+    .form-con {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .secondcheck {
+        padding-top: 20px;
+    }
+    #checkbox1 {
+                margin-left: 0px;
+                margin-top: 50px;
+            }
+            #checkbox2 {
+                margin-left: 0px;
+                margin-top: 50px;
+            }
+}
+</style>
+{% include 'templates/parts/footer.twig' %}
